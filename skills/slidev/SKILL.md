@@ -16,4 +16,3 @@ Use this skill whenever you are working with Slidev code to obtain domain-specif
 - rules/themes.md - Using themes, theme configuration, ejecting themes
 - rules/export.md - PDF, PNG, PPTX export and SPA build configuration
 - rules/presenter.md - Presenter mode, speaker notes, timer
-- rules/styling.md - Visual design patterns, UnoCSS utilities, professional styling
