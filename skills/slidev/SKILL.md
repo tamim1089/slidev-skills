@@ -16,3 +16,11 @@ Use this skill whenever you are working with Slidev code to obtain domain-specif
 - rules/themes.md - Using themes, theme configuration, ejecting themes
 - rules/export.md - PDF, PNG, PPTX export and SPA build configuration
 - rules/presenter.md - Presenter mode, speaker notes, timer
+- rules/directory-structure.md - Project layout: components, layouts, public, setup, styles dirs
+- rules/frontmatter-config.md - Complete headmatter and per-slide frontmatter reference
+- rules/vue-context.md - Vue global context: $slidev, $clicks, $nav, composables
+- rules/syntax-advanced.md - LaTeX, import code snippets, multiple entries, embedded styles
+- rules/navigation.md - Keyboard shortcuts, navigation bar, slides overview
+- rules/addons.md - Using addons with Slidev presentations
+- rules/customization.md - Configuring Vite, Vue, UnoCSS, Monaco, Shiki, shortcuts, parser
+- rules/global-layers.md - Persistent components: global-top, global-bottom, per-slide layers

@@ -181,7 +181,131 @@ Animate elements with @vueuse/motion.
 
 The element moves from -80px to 0 on enter, then to 80px on leave.
 
-### Motion with Clicks
+### Element Transitions (CSS Classes)
+
+When v-click is applied, elements get CSS classes for custom transitions:
+
+```html
+<div class="slidev-vclick-target slidev-vclick-hidden">Text</div>
+```
+
+After click:
+```html
+<div class="slidev-vclick-target">Text</div>
+```
+
+Default CSS:
+```css
+.slidev-vclick-target {
+  transition: opacity 100ms ease;
+}
+.slidev-vclick-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+```
+
+Override in custom stylesheets:
+```css
+.slidev-vclick-target {
+  transition: all 500ms ease;
+}
+.slidev-vclick-hidden {
+  transform: scale(0);
+}
+```
+
+Per-slide or per-layout targeting:
+```scss
+.slidev-page-7,
+.slidev-layout.my-custom-layout {
+  .slidev-vclick-target {
+    transition: all 500ms ease;
+  }
+  .slidev-vclick-hidden {
+    transform: scale(0);
+  }
+}
+```
+
+## Custom Transitions
+
+Create custom transitions via CSS (Vue Transition naming):
+```css
+.my-transition-enter-active,
+.my-transition-leave-active {
+  transition: opacity 0.5s ease;
+}
+.my-transition-enter-from,
+.my-transition-leave-to {
+  opacity: 0;
+}
+```
+
+Use in frontmatter:
+```yaml
+---
+transition: my-transition
+---
+```
+
+## View Transitions API
+
+Experimental (since v0.43) - create smooth transitions between DOM states:
+```md
+---
+transition: view-transition
+mdc: true
+---
+
+# View Title {.inline-block.view-transition-title}
+
+---
+
+# View Title {.inline-block.view-transition-title}
+```
+
+Check [browser compatibility](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API#browser_compatibility) before using.
+
+## Advanced Transition Options
+
+Pass a config object to TransitionGroup:
+```yaml
+---
+transition:
+  name: my-transition
+  enterFromClass: custom-enter-from
+  enterActiveClass: custom-enter-active
+---
+```
+
+## v-click-gap
+
+Insert gap between click positions:
+```html
+<div v-click>Click 1</div>
+<v-click-gap size="2" />
+<div v-click>Click 4</div>
+```
+
+## Preloading and Motion
+
+Motion animations may start before slide navigation due to preloading. Disable preloading or use v-if:
+```md
+---
+preload: false
+---
+```
+
+```html
+<div v-if="$slidev.nav.currentPage === 7" v-motion
+  :initial="{ x: -80 }"
+  :enter="{ x: 0 }">
+  Slidev
+</div>
+```
+
+## Motion with Clicks
 
 Trigger motion states on specific clicks.
 ````html

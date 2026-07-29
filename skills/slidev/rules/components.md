@@ -207,3 +207,86 @@ Display slide numbers.
 ```
 
 Output: "5 / 20"
+
+## VSwitch
+
+Switch between multiple content slots based on click progress.
+```html
+<v-switch>
+  <template #1>Shown at click 1</template>
+  <template #2>Shown at click 2</template>
+  <template #5-7>Shown at clicks 5 through 6</template>
+</v-switch>
+```
+
+Props:
+- `unmount` (`boolean`, default: `false`) - Unmount previous slot when switching
+- `tag` (`string`, default: `'div'`) - Component wrapper tag
+- `childTag` (`string`, default: `'div'`) - Child wrapper tag
+- `transition` (`boolean`, default: `false`) - Enable transition between slots
+
+## VDrag
+
+Make elements draggable during presentation.
+```html
+<VDrag>
+  <div>Drag me around</div>
+</VDrag>
+```
+
+Use `dragPos` in frontmatter for initial positions:
+```yaml
+---
+dragPos:
+  left: '100px'
+  top: '200px'
+---
+```
+
+## Titles
+
+Virtual component for displaying a slide's title. Import from `@slidev/titles.md`:
+```html
+<Titles no="42" />
+```
+
+Params:
+- `no` (`string | number`): slide number (1-indexed)
+
+Override title and level in frontmatter:
+```yaml
+---
+title: Amazing slide title
+level: 2
+---
+```
+
+## PoweredBySlidev
+
+Render "Powered by Slidev" with a link:
+```html
+<PoweredBySlidev />
+```
+
+## SlidevVideo Additional Details
+
+```html
+<SlidevVideo autoplay="once" controls>
+  <source src="/video.mp4" type="video/mp4" />
+</SlidevVideo>
+```
+
+Additional props:
+- `autoplay` - `true`, `'once'` (play only once), or `false`
+- `autoreset` - `'slide'` (reset on slide return) or `'click'` (reset on click return)
+- `printPoster` - Override poster image when printing
+- `printTimestamp` - Override timestamp when printing (`'last'` or number)
+
+## VAfter
+
+Component version of the `v-after` directive (same behavior):
+```html
+<VAfter>
+  <div>Appears with previous v-click element</div>
+</VAfter>
+```

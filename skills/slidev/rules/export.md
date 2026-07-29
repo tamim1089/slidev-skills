@@ -77,6 +77,16 @@ Output: `dist/` folder with static files.
 slidev build --base /my-slides/     # Set base path for deployment
 slidev build --out my-build         # Custom output directory
 slidev build --without-notes        # Exclude speaker notes
+slidev build --watch                # Rebuild on file changes
+slidev build --download             # Generate PDF alongside SPA
+```
+
+### Multiple Entries Build
+
+Build multiple slide decks at once:
+```bash
+slidev build slides1.md slides2.md
+slidev build *.md
 ```
 
 ### Base Path
@@ -138,6 +148,73 @@ Or in config:
 export:
   executablePath: /path/to/chromium
 ---
+```
+
+## Playwright Dependency
+
+Export to PDF/PNG/PPTX requires Playwright:
+```bash
+npm i -D playwright-chromium
+```
+
+## Export Range
+
+Export specific slides or ranges:
+```bash
+slidev export --range 1,6-8,10
+```
+
+## Export Wait Options
+
+Add delay or wait for specific state before exporting:
+```bash
+slidev export --wait 10000          # Extra delay before export
+slidev export --wait-until none      # Don't wait for network idle
+```
+
+Wait-until values: `'networkidle'` (default), `'domcontentloaded'`, `'load'`, `'none'`
+
+## Multiple Entries
+
+Export multiple slide decks at once:
+```bash
+slidev export slides1.md slides2.md
+slidev export *.md
+```
+
+## Dark Mode Export
+
+Export using dark theme:
+```bash
+slidev export --dark
+```
+
+## Export Notes
+
+Export only presenter notes to PDF:
+```bash
+slidev export-notes
+```
+
+## Markdown Export
+
+Export compiled markdown with PNG images:
+```bash
+slidev export --format md
+```
+
+## PDF Outline
+
+Generate PDF with table of contents:
+```bash
+slidev export --with-toc
+```
+
+## Export Timeout
+
+Increase timeout for large presentations:
+```bash
+slidev export --timeout 60000
 ```
 
 ## Hosting

@@ -159,6 +159,30 @@ drawings:
 ---
 ```
 
+### Stylus Pen Support
+
+When using a stylus pen (e.g., Apple Pencil), Slidev detects input type automatically. Draw directly with the pen without enabling drawing mode. Fingers/mouse still control navigation.
+
+### Persist Drawings as SVGs
+
+Set `persist: true` to save drawings as SVGs in `.slidev/drawings` directory. Included in exported PDF and hosted SPA.
+```yaml
+---
+drawings:
+  persist: true
+---
+```
+
+### Disable Drawing
+
+```yaml
+---
+drawings:
+  enabled: false      # Fully disabled
+  enabled: dev        # Only in development
+---
+```
+
 ## Keyboard Shortcuts
 
 | Key | Action |

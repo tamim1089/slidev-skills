@@ -145,3 +145,126 @@ Use `\---` to escape the separator.
 
 This stays on the same slide.
 ```
+
+## LaTeX Math
+
+Built-in LaTeX support via KaTeX.
+
+### Inline Math
+```markdown
+Inline: $\sqrt{3x-1}+(1+x)^2$
+```
+
+### Block Math
+```latex
+$$
+\begin{array}{c}
+\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t}
+= \frac{4\pi}{c}\vec{\mathbf{j}}
+\end{array}
+$$
+```
+
+### LaTeX Line Highlighting
+```latex
+$$ {1|3|all}
+\begin{array}{c}
+\nabla \times \vec{\mathbf{B}} \\
+= \frac{4\pi}{c}\vec{\mathbf{j}}
+\end{array}
+$$
+```
+
+## Import Code Snippets
+
+Import code from files using `<<<` syntax (since v0.47):
+```markdown
+<<< @/snippets/snippet.js
+
+<<< @/snippets/example.ts {2,3}
+```
+
+`@` resolves to the `slides.md` directory.
+
+## Multiple Entries
+
+Split slides across files using `src:` in frontmatter:
+
+`slides.md`:
+```markdown
+# Page 1
+
+---
+src: ./subpage2.md
+---
+```
+
+`subpage2.md`:
+```markdown
+# Page 2
+
+This page is from another file
+```
+
+### Frontmatter Merging
+
+Main entry frontmatter has higher priority than included files.
+
+### Page Reuse
+
+Include the same file multiple times:
+```markdown
+---
+src: ./cover.md
+---
+---
+src: ./content.md
+---
+---
+src: ./content.md
+---
+```
+
+## Embedded Styles
+
+Use `<style>` in markdown for slide-specific scoped styles:
+```markdown
+# This is Red
+
+<style>
+h1 {
+  color: red
+}
+</style>
+```
+
+With UnoCSS directives:
+```markdown
+<style>
+blockquote {
+  code {
+    --uno: text-teal-500 dark:text-teal-400;
+  }
+}
+</style>
+```
+
+## Prettier Support
+
+Use yaml code block as alternative frontmatter to avoid Prettier conflicts:
+````markdown
+---
+layout: cover
+---
+
+# Slidev
+
+---
+
+```yaml
+layout: center
+class: 'text-white'
+```
+
+# Page 2
+````

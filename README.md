@@ -6,14 +6,14 @@ Helps AI agents (Claude Code, Cursor, Codex, Copilot) generate correct Slidev co
 
 ## Installation
 ```bash
-npx skills add marcoshaber99/slidev-skills
+npx skills add tamim1089/slidev-skills
 ```
 
 Or manually copy `skills/slidev` to `.claude/skills/` or `.github/skills/` in your project.
 
 ## What's Included
 
-11 rule files covering syntax, layouts, code blocks, animations, components, diagrams, assets, themes, export, presenter mode, and common anti-patterns.
+20 rule files covering syntax, layouts, code blocks, animations, components, diagrams, assets, themes, export, presenter mode, directory structure, frontmatter config, Vue context, advanced syntax, navigation, addons, customization, global layers, and common anti-patterns.
 
 ## Links
 
