@@ -176,6 +176,25 @@ Configure auto-run:
 ````````````
 `````````````
 
+Show output at a specific click:
+`````````````markdown
+````````````ts {monaco-run}{showOutputAt:'+1'}
+// Output appears after 1 click
+console.log('Delayed output')
+````````````
+`````````````
+
+`showOutputAt` uses the same syntax as `v-click`: numbers for absolute click, `'+N'` for relative.
+
+## Writable Monaco Editor
+
+Since v0.49.5, link Monaco editor to a file on disk. Edits save back to the file.
+```md
+<<< ./some-file.ts {monaco-write}
+```
+
+WARNING: Changes are saved directly to the file. Back up beforehand.
+
 ## Magic Move
 
 Animate between code changes. Requires 4-backtick wrapper.
@@ -237,12 +256,14 @@ All options go in curly braces after the language:
 ````````````ts {2,3}                    // Line highlight
 ```````````ts {monaco}                 // Monaco editor
 ``````````ts {monaco-run}             // Monaco with execution
-`````````ts {monaco-diff}            // Monaco diff view
-````````ts {lines:true}             // Show line numbers
-```````ts {startLine:10}           // Start line numbers at 10
-``````ts {maxHeight:'200px'}      // Scrollable height
-`````ts twoslash                 // TwoSlash annotations
-````ts {2|3|4}{at:2}            // Start at click 2
+````````ts {monaco-run}{showOutputAt:'+1'} // Delayed output
+```````ts {monaco-diff}              // Monaco diff view
+``````ts {monaco-write}              // Writable Monaco (saves to file)
+`````ts {lines:true}                // Show line numbers
+````ts {startLine:10}               // Start line numbers at 10
+```ts {maxHeight:'200px'}           // Scrollable height
+```ts twoslash                      // TwoSlash annotations
+```ts {2|3|4}{at:2}                 // Start at click 2
 ````
 
 Combine multiple options:
@@ -253,4 +274,6 @@ Combine multiple options:
 ````
 `````
 
-Let me know once created.
+## Code Runners for Other Languages
+
+Slidev supports JavaScript and TypeScript out-of-box for Monaco runner. For custom languages, configure via `setup/code-runners.ts`.

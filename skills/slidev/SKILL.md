@@ -24,3 +24,5 @@ Use this skill whenever you are working with Slidev code to obtain domain-specif
 - rules/addons.md - Using addons with Slidev presentations
 - rules/customization.md - Configuring Vite, Vue, UnoCSS, Monaco, Shiki, shortcuts, parser
 - rules/global-layers.md - Persistent components: global-top, global-bottom, per-slide layers
+- rules/tips.md - CSS Grid, absolute positioning, font-size, canvas scaling, color schema, router mode
+- rules/editors.md - Integrated editor, VS Code extension, Prettier plugin

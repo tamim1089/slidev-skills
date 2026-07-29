@@ -144,3 +144,100 @@ addons:
 ```
 
 Addons provide components and features without replacing the theme.
+
+## Writing a Theme
+
+Create a theme with the generator:
+```bash
+npm init slidev-theme
+```
+
+### Conventions
+
+- Package name starts with `slidev-theme-`, e.g. `slidev-theme-awesome`
+- Add `slidev-theme` and `slidev` in `package.json` keywords
+
+### Capabilities
+
+A theme can provide:
+- Global styles
+- Default configurations (fonts, colors, highlighters)
+- Custom layouts (or override existing ones)
+- Custom components (or override existing ones)
+- UnoCSS configuration extensions
+- Shiki/Monaco configuration
+
+### Default Configurations
+
+Set defaults via `package.json`:
+```json
+{
+  "slidev": {
+    "defaults": {
+      "aspectRatio": "16/9",
+      "canvasWidth": 980,
+      "fonts": {
+        "sans": "Roboto",
+        "mono": "Fira Code"
+      }
+    }
+  }
+}
+```
+
+### Color Schema
+
+Specify supported color schemes:
+```json
+{
+  "slidev": {
+    "colorSchema": "both"   // 'light', 'dark', or 'both'
+  }
+}
+```
+
+Style for dark mode:
+```css
+html:not(.dark) { /* light mode */ }
+html.dark { /* dark mode */ }
+```
+
+### Syntax Highlighting
+
+Provide highlighting via `setup/shiki.ts` in the theme:
+```ts
+import { defineShikiSetup } from '@slidev/types'
+
+export default defineShikiSetup(() => ({
+  themes: {
+    dark: 'min-dark',
+    light: 'min-light',
+  },
+}))
+```
+
+### Version Requirement
+
+Set minimum Slidev version:
+```json
+{
+  "engines": {
+    "slidev": ">=0.19.3"
+  }
+}
+```
+
+### Testing
+
+Create `example.md` with `theme: ./` and add scripts:
+```json
+{
+  "scripts": {
+    "dev": "slidev example.md",
+    "build": "slidev build example.md",
+    "export": "slidev export example.md"
+  }
+}
+```
+
+Publish directly — `.vue` and `.ts` files need no build step.
