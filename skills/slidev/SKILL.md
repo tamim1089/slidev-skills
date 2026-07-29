@@ -1,9 +1,16 @@
 ---
 name: slidev
-description: Use this skill when working with Slidev presentations. Helps with slide syntax, frontmatter configuration, layouts, animations, code highlighting, diagrams, themes, and exporting. Prevents common mistakes like incorrect asset paths, deprecated features, and non-existent layouts.
+description: Use ONLY when writing or editing Slidev presentations. Covers slide syntax, frontmatter config, layouts, click animations, code highlighting (Shiki/Monaco/Magic Move), diagrams (Mermaid/PlantUML), LaTeX, components, themes, presenter mode, export, and hosting. Prevents common mistakes with asset paths, deprecated features, non-existent layouts, and click animation syntax.
+compatibility: Node.js >= 18
 ---
 
-Use this skill whenever you are working with Slidev code to obtain domain-specific knowledge. Read individual rule files for detailed explanations and code examples:
+Use this skill whenever working with Slidev code. Read individual rule files for detailed explanations and code examples. Follow these principles:
+
+- Use absolute paths for assets from `public/` — never relative paths
+- Use curly braces for code block line highlighting — e.g. `{2,3}`
+- Quote relative click positions — e.g. `v-click="'+1'"` not `v-click="+1"`
+- Use four backticks for Magic Move, not three
+- Split complex slides into multiple simpler ones rather than overloading a single slide
 
 - rules/anti-patterns.md - Critical mistakes to avoid: deprecated features, incorrect paths, non-existent layouts
 - rules/core-syntax.md - Slide separators, frontmatter structure, headmatter vs per-slide configuration

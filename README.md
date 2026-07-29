@@ -2,7 +2,7 @@
 
 Agent Skills for [Slidev](https://sli.dev) — the developer-friendly presentation tool that turns Markdown into beautiful slides with live coding, diagrams, LaTeX, and interactive Vue components.
 
-Helps AI agents (Claude Code, Cursor, Codex, Copilot) generate correct Slidev code by encoding best practices, providing complete configuration references, and preventing common mistakes.
+Use these skills when writing or editing Slidev presentations. They encode best practices, provide complete configuration references, and prevent common mistakes — saving you from incorrect asset paths, deprecated features, non-existent layouts, and syntax errors.
 
 ## Installation
 
