@@ -1,0 +1,9 @@
+node_modules
+dist
+.slidev
+.DS_Store
+*.log
+
+# Build artifacts
+slides-export.pdf
+slide-*.png

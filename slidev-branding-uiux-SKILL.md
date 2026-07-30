@@ -267,6 +267,42 @@ step, key number). If everything is accented, nothing is.
 
 ---
 
+## 8) AI-generated design pattern ban
+
+Never use, under any framing: Inter as the primary typeface (pick something
+with more character — e.g. a grotesque like Suisse Int'l, Neue Haas, or
+system alternatives with real personality), blue-to-purple/indigo
+gradients of any kind, glassmorphism/frosted-glass panels, drop shadows on
+cards as a default (only for genuine elevation, never decoration), glow/
+neon effects, more than one shade of "rounded corner" card as the entire
+layout strategy, centered body text, emoji used as icons, or any palette
+built on Tailwind's default indigo/violet scale. If a generated slide could
+be mistaken for a generic SaaS landing page, it fails — redo it.
+
+---
+
+## 9) Diagram and visual libraries beyond Mermaid
+
+- **Real brand/tech logos** (Linux, Windows, language/tool logos): use
+  `simple-icons` (npm) for brand marks and `devicon` for language/tool
+  icons — never approximate a logo with a generic Unicode icon.
+- **Connecting logos/entities to each other** (e.g. "Linux logo → kernel →
+  syscall interface"): use Vue Flow (`@vue-flow/core` for Vue environments, similar to React Flow) with custom node
+  components that embed the actual SVG icon — Mermaid cannot host real
+  logo SVGs as first-class nodes, Vue/React Flow can, and gives full control
+  over edge routing so it never collides like Mermaid's dagre layout does.
+- **Genuine data-structure visuals** (arrays, trees, linked lists, graphs):
+  build with D3.js as custom SVG, not a markdown table dressed up — a
+  table is not a data structure diagram no matter how it's styled.
+- **Math**: KaTeX (Slidev supports it natively via `$...$` / `$$...$$`) for
+  any real equation — never render math as an image or plain text.
+- **Keep Mermaid only for what it's actually good at**: linear sequence
+  diagrams and simple flowcharts under 5 nodes (per the existing Section
+  5.5 diagram-discipline rules) — not for anything branded or structurally
+  complex.
+
+---
+
 ## 8) Anti-pattern checklist — scan every generated deck against this
 
 - [ ] Any slide with more than one assertion/idea → split it.
